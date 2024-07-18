@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer & Transaction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-bs-theme="dark">
+    <div class="container my-3 border p-2">
+        <h5 class="text-center text-info">search by name or amount</h5>
+        <div class="row g-3">
+            <div class="col-md-6 mb-3"><input class="form-control" id="inputName" type="text"
+                    placeholder="enter the Name ..." /></div>
+            <div class="col-md-6"><input class="form-control" id="inputAmount" type="number"
+                    placeholder="enter the Amount ..."></div>
+        </div>
+    </div>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th scope="col" class="text-info border">Customer ID</th>
+                <th scope="col" class="text-info border">Customer Name</th>
+                <th scope="col" class="text-info border">Transaction Date</th>
+                <th scope="col" class="text-info border">Amount</th>
+            </tr>
+        </thead>
+        <tbody class="customerTable">
+
+        </tbody>
+    </table>
+
+    <div class="container mt-4">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
