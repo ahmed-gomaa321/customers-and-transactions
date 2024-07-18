@@ -3,6 +3,7 @@ const baseUrl = 'http://localhost:3000';
 const tableBody = document.querySelector('.customerTable');
 const inputName = document.querySelector('#inputName');
 const inputAmount = document.querySelector('#inputAmount');
+let customerId;
 // ########################################################################
 async function fetchCustomerData() {
     try {
@@ -63,13 +64,7 @@ async function displayData() {
         });
 
         // Add click event listener to each row
-        const rows = document.querySelectorAll('.customerTable tr');
-        rows.forEach(row => {
-            row.addEventListener('click', () => {
-                const customerId = row.getAttribute('data-id');
-                drawChartForCustomer(customerId);
-            });
-        });
+        clickOnCustomer();
     } catch (error) {
         console.error('Error displaying data:', error);
     }
@@ -114,6 +109,15 @@ async function drawChartForCustomer(customerId) {
     }
 }
 
+function clickOnCustomer() {
+    const rows = document.querySelectorAll('.customerTable tr');
+    rows.forEach(row => {
+        row.addEventListener('click', () => {
+            const customerId = row.getAttribute('data-id');
+            drawChartForCustomer(customerId);
+        });
+    });
+}
 
 displayData();
 // #########################3
@@ -146,6 +150,7 @@ async function filterTable() {
                 // if the name is equal to the input name
                 if ((!customerNameFilter || customerName.includes(customerNameFilter)) && (!customerAmountFilter || amount === customerAmountFilter)) {
                     const row = document.createElement('tr');
+                    row.dataset.id = customer.id;
                     row.innerHTML = `
                         <td class="border">${customer.id}</td>
                         <td class="border">${customer.name}</td>
@@ -157,4 +162,5 @@ async function filterTable() {
             }
         })
     })
+    clickOnCustomer();
 }
