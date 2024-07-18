@@ -3,7 +3,6 @@ const baseUrl = 'http://localhost:3000';
 const tableBody = document.querySelector('.customerTable');
 const inputName = document.querySelector('#inputName');
 const inputAmount = document.querySelector('#inputAmount');
-let customerId;
 // ########################################################################
 async function fetchCustomerData() {
     try {
